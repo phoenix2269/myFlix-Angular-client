@@ -9,8 +9,10 @@ const apiUrl = 'https://movie-api-cf.herokuapp.com/';
   providedIn: 'root'
 })
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
+  /**
+   * Inject the HttpClient module to the constructor params
+   * This will provide HttpClient to the entire class, making it available via this.http
+  */
   constructor(private http: HttpClient) { }
 
   /**
@@ -110,18 +112,6 @@ export class FetchApiDataService {
   getOneUser(username: string): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return user;
-    // This endpoint does not exist but this is how it would look
-    // const username = localStorage.getItem('user');
-    // const token = localStorage.getItem('token');
-    // return this.http.get(apiUrl + 'users/' + user, {
-    //   headers: new HttpHeaders(
-    //     {
-    //       Authorization: 'Bearer ' + token,
-    //     })
-    // }).pipe(
-    //   map(this.extractResponseData),
-    //   catchError(this.handleError)
-    // );
   }
 
   /**
